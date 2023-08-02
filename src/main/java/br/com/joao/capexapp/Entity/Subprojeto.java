@@ -1,5 +1,7 @@
 package br.com.joao.capexapp.Entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -40,7 +42,16 @@ public class Subprojeto {
 
   @ManyToOne
   @JoinColumn(name = "projeto_id", nullable = false)
+  @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
   private Projeto projeto;
+
+  public Projeto getProjeto() {
+    return projeto;
+  }
+
+  public void setProjeto(Projeto projeto) {
+    this.projeto = projeto;
+  }
 
   public long getSubprojeto_id() {
     return subprojeto_id;

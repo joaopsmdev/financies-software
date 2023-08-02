@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.joao.capexapp.Entity.Projeto;
+
 import br.com.joao.capexapp.Repository.ProjetoRepository;
 
 @Service
@@ -23,6 +24,11 @@ public class ProjetoService {
     projeto.setValorSaldo(projeto.getValorVerba() - projeto.getValorRealizado());
     Projeto projetos = projetoRepository.save(projeto);
     return projetos;
+  }
+
+  public Projeto getProjetoById(Long id) {
+    Projeto projeto = projetoRepository.findById(id).get();
+    return projeto;
   }
 
   public List<Projeto> getProjeto() {
@@ -48,5 +54,4 @@ public class ProjetoService {
     Projeto projeto = projetoRepository.findById(id).get();
     projetoRepository.delete(projeto);
   }
-
 }

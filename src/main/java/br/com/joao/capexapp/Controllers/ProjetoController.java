@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.joao.capexapp.Entity.Projeto;
+
 import br.com.joao.capexapp.Services.ProjetoService;
 
 @RestController
@@ -42,4 +43,5 @@ public class ProjetoController {
     projetoService.deleteProjeto(id);
     return ResponseEntity.ok("Projeto deletado com sucesso!");
   }
+
 }
