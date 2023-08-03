@@ -27,7 +27,7 @@ public class SubProjetoService {
 
   public Subprojeto saveSubProjeto(Subprojeto subProjeto) {
     if (subProjeto.getValorRealizado() == null) {
-      subProjeto.setValorRealizado(Long.valueOf(0));
+      subProjeto.setValorRealizado(0.0);
     } else {
       subProjeto.setValorRealizado(subProjeto.getValorRealizado());
     }

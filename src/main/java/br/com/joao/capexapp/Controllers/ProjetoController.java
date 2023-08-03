@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.joao.capexapp.Entity.Projeto;
 
 import br.com.joao.capexapp.Services.ProjetoService;
+import br.com.joao.capexapp.Utils.utilsValores;
 
 @RestController
 public class ProjetoController {
@@ -22,9 +23,18 @@ public class ProjetoController {
   @Autowired
   private ProjetoService projetoService;
 
+  @Autowired
+  private utilsValores utilsValores;
+
   @GetMapping("/projeto")
   public ResponseEntity<List<Projeto>> get() {
     return ResponseEntity.ok(projetoService.getProjeto());
+  }
+
+  @GetMapping("/projeto/{id}")
+  public ResponseEntity<Projeto> getById(@PathVariable Long id) {
+    utilsValores.atualizaValoresProjeto(id);
+    return ResponseEntity.ok(projetoService.getProjetoById(id));
   }
 
   @PostMapping("/projeto")

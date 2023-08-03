@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -20,7 +22,7 @@ import jakarta.persistence.Table;
 public class Projeto {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private long projeto_id;
+  private long projetoId;
 
   @Column(nullable = false, unique = true)
   private Integer numeroProjeto;
@@ -40,13 +42,19 @@ public class Projeto {
   }
 
   @Column(nullable = false)
-  private Long valorVerba;
+  private Double valorVerba;
 
   @Column(nullable = true)
-  private Long valorRealizado;
+  @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+  private Double valorVerbaComprometida;
 
   @Column(nullable = true)
-  private Long valorSaldo;
+  @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+  private Double valorRealizado;
+
+  @Column(nullable = true)
+  @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+  private Double valorSaldo;
 
   @ManyToMany
   @Column(nullable = true)
@@ -61,11 +69,11 @@ public class Projeto {
   }
 
   public long getProjeto_id() {
-    return projeto_id;
+    return projetoId;
   }
 
   public void setProjeto_id(long projeto_id) {
-    this.projeto_id = projeto_id;
+    this.projetoId = projeto_id;
   }
 
   public Integer getNumeroProjeto() {
@@ -84,28 +92,35 @@ public class Projeto {
     this.nomeProjeto = nomeProjeto;
   }
 
-  public Long getValorVerba() {
+  public Double getValorVerba() {
     return valorVerba;
   }
 
-  public void setValorVerba(Long valorVerba) {
+  public void setValorVerba(Double valorVerba) {
     this.valorVerba = valorVerba;
   }
 
-  public Long getValorRealizado() {
+  public Double getValorRealizado() {
     return valorRealizado;
   }
 
-  public void setValorRealizado(Long valorRealizado) {
+  public void setValorRealizado(Double valorRealizado) {
     this.valorRealizado = valorRealizado;
   }
 
-  public Long getValorSaldo() {
+  public Double getValorSaldo() {
     return valorSaldo;
   }
 
-  public void setValorSaldo(Long valorSaldo) {
+  public void setValorSaldo(Double valorSaldo) {
     this.valorSaldo = valorSaldo;
   }
 
+  public Double getValorVerbaComprometida() {
+    return valorVerbaComprometida;
+  }
+
+  public void setValorVerbaComprometida(Double valorVerbaComprometida) {
+    this.valorVerbaComprometida = valorVerbaComprometida;
+  }
 }

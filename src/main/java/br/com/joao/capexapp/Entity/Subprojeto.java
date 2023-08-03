@@ -26,22 +26,54 @@ public class Subprojeto {
   private Integer numeroSubprojeto;
 
   @Column(nullable = false)
-  private Long valorVerba;
+  private Double valorVerba;
 
   @Column(nullable = true)
-  private Long valorRealizado;
+  private Double valorRealizado;
+
+  public Double getValorRealizado() {
+    return valorRealizado;
+  }
+
+  public void setValorRealizado(Double valorRealizado) {
+    this.valorRealizado = valorRealizado;
+  }
 
   @Column(nullable = true)
-  private Long valorComprometido;
+  private Double valorComprometido;
+
+  public Double getValorComprometido() {
+    return valorComprometido;
+  }
+
+  public void setValorComprometido(Double valorComprometido) {
+    this.valorComprometido = valorComprometido;
+  }
 
   @Column(nullable = true)
-  private Long valorDisponivel;
+  private Double valorDisponivel;
+
+  public Double getValorDisponivel() {
+    return valorDisponivel;
+  }
+
+  public void setValorDisponivel(Double valorDisponivel) {
+    this.valorDisponivel = valorDisponivel;
+  }
 
   @Column(nullable = true)
-  private Long valorTendencia;
+  private Double valorTendencia;
+
+  public Double getValorTendencia() {
+    return valorTendencia;
+  }
+
+  public void setValorTendencia(Double valorTendencia) {
+    this.valorTendencia = valorTendencia;
+  }
 
   @ManyToOne
-  @JoinColumn(name = "projeto_id", nullable = false)
+  @JoinColumn(name = "projetoId", nullable = false)
   @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
   private Projeto projeto;
 
@@ -77,43 +109,12 @@ public class Subprojeto {
     this.numeroSubprojeto = numeroSubprojeto;
   }
 
-  public Long getValorVerba() {
+  public Double getValorVerba() {
     return valorVerba;
   }
 
-  public void setValorVerba(Long valorVerba) {
+  public void setValorVerba(Double valorVerba) {
     this.valorVerba = valorVerba;
   }
 
-  public Long getValorRealizado() {
-    return valorRealizado;
-  }
-
-  public void setValorRealizado(Long valorRealizado) {
-    this.valorRealizado = valorRealizado;
-  }
-
-  public Long getValorComprometido() {
-    return valorComprometido;
-  }
-
-  public void setValorComprometido(Long valorComprometido) {
-    this.valorComprometido = valorComprometido;
-  }
-
-  public Long getValorDisponivel() {
-    return valorDisponivel;
-  }
-
-  public void setValorDisponivel(Long valorDisponivel) {
-    this.valorDisponivel = valorDisponivel;
-  }
-
-  public Long getValorTendencia() {
-    return valorTendencia;
-  }
-
-  public void setValorTendencia(Long valorTendencia) {
-    this.valorTendencia = valorTendencia;
-  }
 }

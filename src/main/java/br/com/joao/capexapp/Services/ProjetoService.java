@@ -17,7 +17,7 @@ public class ProjetoService {
 
   public Projeto saveProjeto(Projeto projeto) {
     if (projeto.getValorRealizado() == null) {
-      projeto.setValorRealizado(Long.valueOf(0));
+      projeto.setValorRealizado(0.0);
     } else {
       projeto.setValorRealizado(projeto.getValorRealizado());
     }
